@@ -1,0 +1,20 @@
+{% extends 'gestion/base.html' %}
+{% block content %}
+<h2>Añadir Datos</h2>
+<form method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend>Añadir Autor</legend>
+        {{ author_form.as_p }}
+    </fieldset>
+    <fieldset>
+        <legend>Añadir Género</legend>
+        {{ genre_form.as_p }}
+    </fieldset>
+    <fieldset>
+        <legend>Añadir Libro</legend>
+        {{ book_form.as_p }}
+    </fieldset>
+    <button type="submit">Guardar</button>
+</form>
+{% endblock %}
