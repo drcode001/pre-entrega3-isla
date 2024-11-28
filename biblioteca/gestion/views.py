@@ -3,7 +3,7 @@ from .models import Author, Book, Genre
 from .forms import AuthorForm, BookForm, GenreForm, SearchForm
 
 def home(request):
-    return render(request, 'gestion/home.html')
+    return render(request, 'biblioteca/gestion/templates/home.html')
 
 def add_data(request):
     if request.method == 'POST':
