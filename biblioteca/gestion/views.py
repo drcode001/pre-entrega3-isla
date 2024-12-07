@@ -3,7 +3,7 @@ from .models import Author, Book, Genre
 from .forms import AuthorForm, BookForm, GenreForm, SearchForm
 
 def home(request):
-    return render(request, 'biblioteca/gestion/templates/home.html')
+    return render(request, 'home.html')
 
 def add_data(request):
     if request.method == 'POST':
@@ -20,7 +20,7 @@ def add_data(request):
         genre_form = GenreForm(prefix='genre')
         book_form = BookForm(prefix='book')
 
-    return render(request, 'gestion/add_data.html', {
+    return render(request, 'add_data.html', {
         'author_form': author_form,
         'genre_form': genre_form,
         'book_form': book_form,
@@ -36,6 +36,7 @@ def search_books(request):
     else:
         form = SearchForm()
 
-    return render(request, 'gestion/search_books.html', {'form': form, 'results': results})
+    return render(request, 'search_books.html', {'form': form, 'results': results})
 
-# Create your views here.
+def blog(request):
+    return render(request, 'blog.html')
