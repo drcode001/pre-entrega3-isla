@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 
 def login_request(request):
 
@@ -17,7 +17,7 @@ def login_request(request):
 
             if user is not None:
                 login(request, user)
-                return render(request, "AppCoder/index.html")
+                return render(request, "gestion/base.html")
 
         msg_login = "Usuario o contraseña incorrectos"
 
@@ -36,11 +36,11 @@ def register(request):
             # Si los datos ingresados en el form son válidos, con form.save()
             # creamos un nuevo user usando esos datos
             form.save()
-            return render(request,"AppCoder/index.html")
-        
+            return render(request,"gestion/base.html")
+    else:
         msg_register = "Error en los datos ingresados"
+        form = UserRegisterForm()
 
-    form = UserRegisterForm()     
     return render(request,"users/registro.html" ,  {"form":form, "msg_register": msg_register})
-
+        
 # Create your views here.
